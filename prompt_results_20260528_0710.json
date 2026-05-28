@@ -1,0 +1,72 @@
+[
+  {
+    "prompt_name": "zero_shot",
+    "output": "Here are the action items extracted from the meeting transcript:\n\n1. Finish the API integration by Friday (assigned to: not specified)\n2. Handle the database migration (assigned to: Sarah, due: tomorrow)\n3. Review the security audit report (assigned to: Sarah)\n4. Send the client update (assigned to: not specified, due: EOD today)\n5. Schedule the team retrospective (assigned to: not specified)",
+    "input_tokens": 111,
+    "output_tokens": 88,
+    "elapsed_sec": 0.77,
+    "success": true,
+    "scores": {
+      "completeness": 5,
+      "structure": 4,
+      "parseable": 1,
+      "total": 10
+    }
+  },
+  {
+    "prompt_name": "role_prompt",
+    "output": "**Meeting Summary Action Items:**\n\nThe following action items were identified during the meeting:\n\n1. **API Integration**: Complete API integration by Friday (assigned to: Team/John)\n2. **Database Migration**: Handle database migration tomorrow (assigned to: Sarah)\n3. **Security Audit Report**: Review the security audit report (assigned to: Sarah)\n4. **Client Update**: Send the client update by End of Day (EOD) today (assigned to: Team/John)\n5. **Team Retrospective**: Schedule the team retrospective (assigned to: TBD/Team)\n\nNote: Assignees are noted where explicitly mentioned in the transcript. Where no specific assignee is mentioned, the action item is assigned to the team or the person who initiated the discussion (John).",
+    "input_tokens": 125,
+    "output_tokens": 157,
+    "elapsed_sec": 0.79,
+    "success": true,
+    "scores": {
+      "completeness": 5,
+      "structure": 5,
+      "parseable": 3,
+      "total": 13
+    }
+  },
+  {
+    "prompt_name": "few_shot",
+    "output": "Here are the action items extracted from the meeting transcript:\n\n- John: Finish API integration (Due: Friday)\n- Sarah: Handle database migration (Due: tomorrow)\n- Sarah: Review security audit report\n- Sarah: Send client update (Due: EOD today)\n- John/Team: Schedule team retrospective \n\nNote: The team retrospective action item is assigned to the team as a whole, as the transcript does not specify who is responsible for scheduling it.",
+    "input_tokens": 154,
+    "output_tokens": 93,
+    "elapsed_sec": 0.41,
+    "success": true,
+    "scores": {
+      "completeness": 5,
+      "structure": 4,
+      "parseable": 3,
+      "total": 12
+    }
+  },
+  {
+    "prompt_name": "chain_of_thought",
+    "output": "To extract the action items from the meeting transcript, let's break it down step by step:\n\n1. **Identify who is speaking**: The speakers are John and Sarah.\n2. **Identify what each person committed to do**:\n   - Sarah committed to handling the database migration and reviewing the security audit report.\n   - John mentioned the need to finish the API integration, send the client update, and schedule the team retrospective, but did not directly commit to doing these tasks himself. However, we can infer that John is responsible for overseeing the API integration and possibly the client update and team retrospective, as he mentioned them.\n3. **Check if any deadlines were mentioned**:\n   - The API integration needs to be finished by Friday.\n   - The database migration is scheduled for tomorrow.\n   - The client update needs to be sent by EOD (End of Day) today.\n4. **Format as a clean action item list**:\n\nBased on the information and the process of elimination regarding who is likely responsible for each task:\n\n- **Sarah**:\n  - Handle the database migration (by tomorrow)\n  - Review the security audit report (no deadline mentioned)\n- **John (or Team)**:\n  - Finish the API integration (by Friday)\n  - Send the client update (by EOD today)\n  - Schedule the team retrospective (no deadline mentioned)\n\n**Action Item List:**\n\n1. **Sarah**: Handle database migration by tomorrow.\n2. **Sarah**: Review the security audit report.\n3. **John/Team**: Finish API integration by Friday.\n4. **John/Team**: Send client update by EOD today.\n5. **John/Team**: Schedule the team retrospective.",
+    "input_tokens": 156,
+    "output_tokens": 345,
+    "elapsed_sec": 1.45,
+    "success": true,
+    "scores": {
+      "completeness": 5,
+      "structure": 5,
+      "parseable": 3,
+      "total": 13
+    }
+  },
+  {
+    "prompt_name": "output_constrained",
+    "output": "[{\"owner\": \"John\", \"task\": \"Finish the API integration\", \"deadline\": \"Friday\"}, \n{\"owner\": \"Sarah\", \"task\": \"Handle the database migration\", \"deadline\": \"tomorrow\"}, \n{\"owner\": \"Sarah\", \"task\": \"Review the security audit report\", \"deadline\": \"not specified\"}, \n{\"owner\": \"not specified\", \"task\": \"Send the client update\", \"deadline\": \"today\"}, \n{\"owner\": \"not specified\", \"task\": \"Schedule the team retrospective\", \"deadline\": \"not specified\"}]",
+    "input_tokens": 163,
+    "output_tokens": 118,
+    "elapsed_sec": 0.41,
+    "success": true,
+    "scores": {
+      "completeness": 5,
+      "structure": 2,
+      "parseable": 5,
+      "total": 12
+    }
+  }
+]
