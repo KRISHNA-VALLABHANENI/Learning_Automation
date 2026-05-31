@@ -8,3 +8,5 @@ __pycache__/
 .vscode/
 session_*.json
 prompt_results_*.json
+
+parsed_resume.json
