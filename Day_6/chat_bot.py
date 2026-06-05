@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from groq import Groq
 
 # --- Setup ---
-load_dotenv(Path(__file__).parent / '.env')
+load_dotenv('.env')
 
 API_KEY = os.getenv('GROQ_API_KEY')
 if not API_KEY:
@@ -32,8 +32,6 @@ Be concise and always include code examples when relevant."""
 
 
 def save_session(messages: list, session_file: str) -> None:
-    # Only save if there are actual conversation messages
-    # messages[0] is always the system prompt — skip it
     conversation = [m for m in messages if m['role'] != 'system']
     
     if not conversation:
